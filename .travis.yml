@@ -1,0 +1,18 @@
+language: go
+
+env:
+  global:
+    - CC_TEST_REPORTER_ID=d75469ec661cd4943c5851cdd273119fcf4c4d5e445c966f0784c095151771d1
+
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+
+  - go get -u github.com/golang/lint/golint
+
+script:
+  - ./bin/build.sh
+
+after_script:
+ - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
