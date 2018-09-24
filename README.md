@@ -1,5 +1,9 @@
 ## Variables
 
+[![Build Status](https://travis-ci.org/visola/variables.svg?branch=master)](https://travis-ci.org/visola/variables)
+[![Maintainability](https://api.codeclimate.com/v1/badges/ac50339f2bbc8f4fcec9/maintainability)](https://codeclimate.com/github/visola/variables/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/ac50339f2bbc8f4fcec9/test_coverage)](https://codeclimate.com/github/visola/variables/test_coverage)
+
 A simple Go (golang) library to find variables inside a string. Variables can also contain a tag to indicate some metadata
 about the variable, like if a variable is required or not.
 
