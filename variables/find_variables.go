@@ -4,7 +4,7 @@ import (
 	"regexp"
 )
 
-var variableRegexp, _ = regexp.Compile("{(\\w+){1}(?::(\\w+)){0,1}}")
+var variableRegexp, _ = regexp.Compile("{([\\w_-]+){1}(?::([\\w_-]+)){0,1}}")
 
 // FindVariables find variables with tag (if any) in a given string
 func FindVariables(stringWithVariables string) []Variable {

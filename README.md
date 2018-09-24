@@ -7,7 +7,7 @@
 A simple Go (golang) library to find variables inside a string. Variables can also contain a tag to indicate some metadata
 about the variable, like if a variable is required or not.
 
-The format of a variable is `{name:tag}`. For now, it only supports `{` and `}` as delimiters and word `\w` characters for names and tags.
+The format of a variable is `{name:tag}`. For now, it only supports `{` and `}` as delimiters and word `\w`, underscore `_` and dash `-` characters for names and tags.
 
 ### Usage
 

@@ -53,13 +53,21 @@ func testFindManyMixedVariables(t *testing.T) {
 	jsonWithVariables := `
 		{
 			"name": "{name}",
-			"password": "{password:request}",
+			"password": "{password:required}",
 			"company": "{company}",
-			"employeeId": {employeeId:number}
+			"employeeId": {employee-id:number},
+			"address": "{address:user-address}",
+			"employee_id": {employee_id:employee_id}
 		}
 	`
 
 	vars := FindVariables(jsonWithVariables)
+	assert.Equal(t, 6, len(vars), "Should find all variables")
 
-	assert.Equal(t, 4, len(vars), "Should find all variables")
+	expectedVariables := []string{"name", "password", "company", "employee-id", "address", "employee_id"}
+	expectedTags := []string{"", "required", "", "number", "user-address", "employee_id"}
+	for i, v := range vars {
+		assert.Equal(t, expectedVariables[i], v.Name, "Should match expected name")
+		assert.Equal(t, expectedTags[i], v.Tag, "Should match expected tag")
+	}
 }
